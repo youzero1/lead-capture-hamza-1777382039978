@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const plans = [
   {
     name: 'Hobby',
@@ -12,6 +14,7 @@ const plans = [
       'Preview deployments',
     ],
     cta: 'Get Started Free',
+    href: '#',
     highlighted: false,
   },
   {
@@ -29,6 +32,7 @@ const plans = [
       'Edge functions',
     ],
     cta: 'Start Pro Trial',
+    href: '/checkout',
     highlighted: true,
   },
   {
@@ -46,6 +50,7 @@ const plans = [
       'On-premise option',
     ],
     cta: 'Contact Sales',
+    href: '#',
     highlighted: false,
   },
 ];
@@ -100,8 +105,8 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <a
-                href="#"
+              <Link
+                href={plan.href}
                 className={`mt-8 block w-full text-center py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
                   plan.highlighted
                     ? 'text-white bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 shadow-lg shadow-indigo-500/25'
@@ -109,7 +114,7 @@ export default function Pricing() {
                 }`}
               >
                 {plan.cta}
-              </a>
+              </Link>
             </div>
           ))}
         </div>
